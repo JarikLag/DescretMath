@@ -1,4 +1,3 @@
-#pragma warning(disable : 4996)
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -34,7 +33,7 @@ int main() {
 	freopen("assignment.out", "w", stdout);*/
 #endif
 	int n;
-	const int maxN = 1e6 + 99;
+	const int maxN = 2 * 1e7 + 10;
 	scanf("%d", &n);
 	vector<bool> isPrime(maxN + 1, true);
 	vector<int> arr(n);
@@ -58,3 +57,4 @@ int main() {
 	}
 	return 0;
 }
+close
