@@ -1,0 +1,22 @@
+start: START
+accept: ACCEPT
+reject: REJECT
+blank: e
+START e -> BACK e < 
+START 0 -> START 0 > 
+START 1 -> START 1 > 
+BACK e -> ACCEPT e > 
+BACK 0 -> SET0 e > 
+BACK 1 -> SET1 e > 
+SET0 e -> RET0 0 < 
+SET0 0 -> SET0 0 > 
+SET0 1 -> SET0 1 > 
+SET1 e -> RET1 1 < 
+SET1 0 -> SET1 0 > 
+SET1 1 -> SET1 1 > 
+RET0 e -> BACK 0 < 
+RET0 0 -> RET0 0 < 
+RET0 1 -> RET0 1 < 
+RET1 e -> BACK 1 < 
+RET1 0 -> RET1 0 < 
+RET1 1 -> RET1 1 <

@@ -1,0 +1,7 @@
+start: START
+accept: ACCEPT
+reject: REJECT
+blank: e
+START e -> ACCEPT e ^ 
+START 0 -> NOT 0 > 
+NOT 0 -> START 0 > 

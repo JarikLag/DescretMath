@@ -1,0 +1,27 @@
+start: START
+accept: ACCEPT
+reject: REJECT
+blank: e
+START e -> ACCEPT e ^ 
+START ( -> A ( ^ 
+START ) -> A ) ^ 
+A e -> I e > 
+A ( -> B e > 
+A ) -> F e > 
+B e -> C e > 
+B ( -> B ( > 
+B ) -> B ) > 
+C e -> D ( < 
+C ( -> C ( > 
+D e -> E e < 
+D ( -> D ( < 
+E e -> A e > 
+E ( -> E ( < 
+E ) -> E ) < 
+F e -> G e > 
+F ( -> F ( > 
+F ) -> F ) > 
+G e -> H e < 
+G ( -> G ( > 
+H ( -> D e < 
+I e -> ACCEPT e ^ 

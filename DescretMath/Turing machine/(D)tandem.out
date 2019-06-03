@@ -1,0 +1,45 @@
+start: START
+accept: ACCEPT
+reject: REJECT
+blank: e
+START 0 -> GO 2 > 
+START 1 -> GO 3 > 
+START 2 -> CHECK 2 < 
+START 3 -> CHECK 3 < 
+GO e  -> BACK e < 
+GO 0 -> GO 0 > 
+GO 1 -> GO 1 > 
+GO 2 -> BACK 2 < 
+GO 3 -> BACK 3 < 
+BACK 0 -> RET 2 < 
+BACK 1 -> RET 3 < 
+BACK 2 -> REJECT 2 ^
+BACK 3 -> REJECT 3 ^
+RET e  -> START e > 
+RET 0 -> RET 0 < 
+RET 1 -> RET 1 < 
+RET 2 -> START 2 > 
+RET 3 -> START 3 > 
+CHECK e  -> ACCEPT e > 
+CHECK 0 -> CHECK 0 < 
+CHECK 1 -> CHECK 1 < 
+CHECK 2 -> CHECK0 0 > 
+CHECK 3 -> CHECK1 1 > 
+CHECK0 e  -> CHECK0BACK e < 
+CHECK0 0 -> CHECK0 0 > 
+CHECK0 1 -> CHECK0 1 > 
+CHECK0 2 -> CHECK0 2 > 
+CHECK0 3 -> CHECK0 3 > 
+CHECK0BACK 2 -> CONT e < 
+CHECK0BACK 3 -> REJECT e ^
+CONT 0 -> CHECK 0 < 
+CONT 1 -> CHECK 1 < 
+CONT 2 -> CONT 2 < 
+CONT 3 -> CONT 3 < 
+CHECK1 e  -> CHECK1BACK e < 
+CHECK1 0 -> CHECK1 0 > 
+CHECK1 1 -> CHECK1 1 > 
+CHECK1 2 -> CHECK1 2 > 
+CHECK1 3 -> CHECK1 3 > 
+CHECK1BACK 3 -> CONT e < 
+CHECK1BACK 2 -> REJECT e ^ 

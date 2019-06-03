@@ -1,0 +1,34 @@
+start: START
+accept: ACCEPT
+reject: REJECT
+blank: e
+START e -> G e > 
+START 0 -> B e > 
+START 1 -> C e > 
+B e -> D 0 < 
+B 0 -> B 0 > 
+B 1 -> B 1 > 
+C e -> D 1 < 
+C 0 -> C 0 > 
+C 1 -> C 1 > 
+D e -> G e > 
+D 0 -> E e < 
+D 1 -> F e < 
+E e -> START 0 > 
+E 0 -> E 0 < 
+E 1 -> E 1 < 
+F e -> START 1 > 
+F 0 -> F 0 < 
+F 1 -> F 1 < 
+G e -> SKIP e < 
+G 0 -> H e < 
+G 1 -> I e < 
+H e -> J 0 > 
+I e -> J 1 > 
+J e -> G e > 
+SKIP e -> SKIP e < 
+SKIP 0 -> FINISH 0 < 
+SKIP 1 -> FINISH 1 < 
+FINISH e -> ACCEPT e > 
+FINISH 0 -> FINISH 0 < 
+FINISH 1 -> FINISH 1 < 

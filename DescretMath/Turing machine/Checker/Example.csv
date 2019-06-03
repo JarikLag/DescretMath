@@ -1,0 +1,5 @@
+;e;0
+START;e|ACCEPT|^;0|NOT|>
+NOT;e|REJECT|^;0|START|>
+ACCEPT;;
+REJECT;;

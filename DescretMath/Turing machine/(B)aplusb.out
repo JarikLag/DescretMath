@@ -1,0 +1,37 @@
+start: START
+accept: ACCEPT
+reject: REJECT
+blank: e
+START e  -> BEGIN e < 
+START 0 -> START 0 > 
+START 1 -> START 1 > 
+START 2 -> START 2 > 
+START 3 -> START 3 > 
+START + -> START + > 
+BEGIN 0 -> BEGIN0 e < 
+BEGIN 1 -> BEGIN1 e < 
+BEGIN + -> NORM e < 
+BEGIN0 0 -> BEGIN0 0 < 
+BEGIN0 1 -> BEGIN0 1 < 
+BEGIN0 + -> ADD0 + < 
+BEGIN1 0 -> BEGIN1 0 < 
+BEGIN1 1 -> BEGIN1 1 < 
+BEGIN1 + -> ADD1 + < 
+ADD0 e  -> START 2 > 
+ADD0 0 -> START 2 > 
+ADD0 1 -> START 3 > 
+ADD0 2 -> ADD0 2 < 
+ADD0 3 -> ADD0 3 < 
+ADD1 e  -> START 3 > 
+ADD1 0 -> START 3 > 
+ADD1 1 -> CARRY 2 < 
+ADD1 2 -> ADD1 2 < 
+ADD1 3 -> ADD1 3 < 
+CARRY e  -> START 1 > 
+CARRY 0 -> START 1 > 
+CARRY 1 -> CARRY 0 < 
+NORM e  -> ACCEPT e > 
+NORM 0 -> NORM 0 < 
+NORM 1 -> NORM 1 < 
+NORM 2 -> NORM 0 < 
+NORM 3 -> NORM 1 < 
