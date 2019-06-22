@@ -25,11 +25,29 @@ typedef long long LL;
 const LL LONG_INF = 1e18;
 const int INT_INF = 1e9 + 7;
 
+LL gcd (LL a, LL b, LL& x, LL& y) {
+	if (a == 0) {
+		x = 0; 
+		y = 1;
+		return b;
+	}
+	LL x1, y1;
+	LL d = gcd(b % a, a, x1, y1);
+	x = y1 - (b / a) * x1;
+	y = x1;
+	return d;
+}
+
 LL inversed(LL a, LL m) {
-	a = a % m;
-	for (LL x = 1; x < m; x++)
-		if ((a * x) % m == 1)
-			return x;
+	LL x, y;
+    LL g = gcd(a, m, x, y);
+    if (g != 1) {
+	    exit(-1);
+    }
+    else {
+	    x = (x % m + m) % m;
+	    return x;
+    }
 }
 
 LL chineseTheorem(vector<LL> a, vector<LL> p, int size) {
